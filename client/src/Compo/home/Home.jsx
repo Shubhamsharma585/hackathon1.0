@@ -1,11 +1,18 @@
 import React from 'react'
+import Styles from "./Home.module.css"
+
 
 function Home() {
 
 
+
+
+
     return (
-        <div>
-            <h1>Home</h1>
+        <div className={Styles.home}>
+
+             <h1 className={Styles.header}>Happiness is... Group Studies!</h1>
+
         </div>
     )
 }
