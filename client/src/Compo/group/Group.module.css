@@ -2,12 +2,12 @@
 
 .grp
 {
-   border: 1px solid gray; 
+   border: 1px solid lightgray; 
    border-radius: 5px;
    height: 60px; 
    padding: 10px;
    display: flex;
-   flex-direction: row;
+   flex-direction: row; 
    justify-content: center;
    margin-bottom: 5px;
 }
@@ -15,14 +15,17 @@
 .img
 {
     border: 1px solid gray; 
-    height: 60px; 
-    width: 60px;
-    margin-right: 20px;
+    border-radius: 40%;
+    background-color: lightgray;
+    margin: auto;
+    margin-right: 10px;
 }
 
 .detail
 {
   margin-right: 30px;
+  border: 0px solid black;
+  min-width: 120px;
 }
 
 .gn

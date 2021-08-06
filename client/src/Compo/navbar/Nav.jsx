@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Styles from "./Nav.module.css"
 import { Link } from 'react-router-dom'
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import { useDispatch, useSelector } from "react-redux"
+
 
 
 function Nav() {
@@ -10,7 +12,10 @@ function Nav() {
 
 
 
+    const user = useSelector(state => state.regi.username)
+
  
+
     return (  
         <div className={Styles.nav}>
             
@@ -23,7 +28,7 @@ function Nav() {
             </p>
 
             <p className={Styles.user}>
-                User
+              {(user)?(user):("User")}
             </p>
    
        </div>

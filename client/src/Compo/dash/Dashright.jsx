@@ -1,18 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import SendIcon from '@material-ui/icons/Send';
 import Styles from "./Dashright.module.css"
 import Group from "../group/Group"
-
+import { useDispatch, useSelector } from "react-redux"
+import { fetchall } from "../../Redux/Registration/action"
 
 
 function DashRight() 
 {
 
 
+    const dispatch = useDispatch();
+    const groups1 = useSelector(state => state.regi.groups)
+   
+    console.log(groups1)
+
     const [sea, setSea] = useState("")
     const startsea = () => {
         
     }
+
+
+
+    useEffect(() => {
+        dispatch(fetchall())
+    }, [])
 
 
     return (
@@ -38,8 +50,12 @@ function DashRight()
             </div>
            
             <div className={Styles.cont}>
-                <Group />   
-                <Group />            
+                {groups1?.map((itm) => { return <Group
+                name={itm.name}
+                qualification={itm.qualification}
+                topic={itm.topic}
+                grpid={itm._id}
+                /> })}         
             </div>
         </div>
     )

@@ -5,18 +5,39 @@ import { Link, Redirect } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { makeStyles } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
+import { makinggrp } from "../../Redux/Groups/action" 
 
-
-
+ 
   
  
 function DashLeft()
 {
 
+    const dispatch = useDispatch();
+    const isloading = useSelector(state => state.grp.isloading)
+    const userid =  useSelector(state => state.regi.object_id)
+
     const [groupname, setGroupname] = useState("") 
     const [qualification, setQualification] = useState("")
     const [topic, setTopic] = useState("")
 
+
+    const makegrp = () => {
+        var pay = {
+            name: groupname,
+            qualification: qualification,
+            topic: topic,
+            limit: 50,
+            admin: userid,
+            members_id:[]
+        }
+        
+        dispatch(makinggrp(pay))
+
+        setGroupname("")
+        setQualification("")
+        setTopic("")
+    }
 
 
     return (
@@ -70,10 +91,11 @@ function DashLeft()
          variant="contained" 
          style={{marginTop:"40px"}}
          startIcon={<SendIcon/>}
-         >Contained</Button>
+         onClick={() => makegrp()}
+         >Make</Button>
             </div>
         </div>    
     )
 }
-
+ 
 export default DashLeft
