@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom";
-import Nav from "../Compo/navbar/Nav"
-import Landing from "../Compo/landing/Landing"
+import Nav from "../Components/navbar/Nav"
+import Landing from "../Components/landing/Landing"
 
 
 function Routes() {
