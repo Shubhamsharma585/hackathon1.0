@@ -1,0 +1,70 @@
+
+
+.dash
+{
+    background-color: rgb(232, 239, 240);
+    border: 0px solid black;
+    height: 700px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.left
+{
+    border: 1px solid lightgray;
+    height: 700px;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+}
+
+.right
+{
+    border: 1px solid lightgray;
+    height: 700px;
+    width: 50%;
+}
+
+.boxl
+{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: white;
+    margin: auto;
+    margin-top: 15%;
+    height: 500px;
+    width: 400px;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    animation-name: up-down;  
+}
+
+
+@keyframes up-down
+{
+    0% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.boxr
+{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: white;
+    margin: auto;
+    margin-top: 15%;
+    height: 500px;
+    width: 400px;
+}
