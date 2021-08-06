@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user.model");
 
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {  
   const user = await User.create(req.body);
   res.json({ data: user });
 })
