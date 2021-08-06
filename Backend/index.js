@@ -5,10 +5,13 @@ const groupCallHandler = require('./groupCallHandler');
 const { v4: uuidv4 } = require('uuid');
 const PORT = 5000;
 const app = express();
+const cors = require("cors")
 
+app.use(cors())
 app.use(express.json());
 
 const connect = require("./src/config/db");
+
 const UserController = require("./src/controllers/user.controller")
 const GroupController = require("./src/controllers/group.controller")
 
@@ -129,3 +132,5 @@ io.on('connection', (socket) => {
     });
   });
 });
+
+

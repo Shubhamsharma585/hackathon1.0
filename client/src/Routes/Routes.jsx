@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route, Switch } from "react-router-dom";
-import Home from "../Compo/home/Home"
-import Nav from "../Compo/navbar/Nav"
-
+import Nav from "../Components/navbar/Nav"
+import Landing from "../Components/landing/Landing"
 
 
 function Routes() {
@@ -14,7 +13,7 @@ function Routes() {
   <Switch> 
 
   <Route path="/" exact>
-    <Home/>
+    <Landing/>
   </Route>
 
 

@@ -1,6 +1,5 @@
 
-import {   REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST,
-    LOGIN_SUCCESS, LOGOUT_SUCCESS, FETCH_REQUEST, FETCH_SUCCESS, } from "./actiontype"
+import {   REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE} from "./actiontype"
 
  
  
@@ -9,13 +8,15 @@ const initstate = {
     object_id: "",
     isloading: false,
     iserror: false,
-    full_name: "",
-    username: "",
-    groups:[] 
+    admin: "",
+    qualification: "",
+    topic: "",
+    members_id: [],
+    limit: ""
 }
 
 
-function regireducer(state = initstate, {type, payload}) 
+function grpreducer(state = initstate, {type, payload}) 
 {
     //console.log(state, type, payload)
     switch(type)
@@ -24,7 +25,7 @@ function regireducer(state = initstate, {type, payload})
             { 
                 return {
                    ...state,
-                isloading: true, 
+                isloading: true,
                 }
             }
 
@@ -35,25 +36,23 @@ function regireducer(state = initstate, {type, payload})
                 object_id: payload._id,
                 isloading: false,
                 iserror: false,
-                full_name: payload.name,
-                username: payload.user_name
+                admin: payload,
+                qualification: payload.qualification,
+                topic: payload.topic,
+                members_id: payload.members_id,
+                limit: payload.limit,
+               
             }
         }
 
-        case FETCH_REQUEST: 
+        case REGISTER_FAILURE: 
         {
             return {
                 ...state,
-                isloading:true,
-            }
-        }
-
-        case FETCH_SUCCESS: 
-        {
-            return {
-                ...state,
+                object_id: payload._id,
                 isloading: false,
-                groups: payload
+                iserror: true,
+               
             }
         }
         
@@ -64,4 +63,4 @@ function regireducer(state = initstate, {type, payload})
     }
 }
 
-export default regireducer;
+export default grpreducer;
