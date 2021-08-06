@@ -36,26 +36,8 @@
     margin-top: 15%;
     height: 500px;
     width: 400px;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-    animation-fill-mode: both;
-    animation-play-state: running;
-    animation-name: up-down;  
 }
 
-
-@keyframes up-down
-{
-    0% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(-10px);
-    }
-}
 
 
 .boxr

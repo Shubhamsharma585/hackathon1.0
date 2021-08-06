@@ -17,13 +17,13 @@
 
 .cont
 {
-    border:1px solid lightgray;
+    border:0px solid lightgray;
     border-radius: 5px;
     background-color: rgb(236, 244, 243);
     height: 350px;
     width: 300px;
     margin: auto;
-    margin-top: 0px;
+    margin-top: 10px;
     overflow: scroll;
     padding: 20px;
 }
