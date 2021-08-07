@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import CombinedNav from "../Components/navbar/CombinedNav"
 import Landing from "../Components/landing/Landing"
 import Board from '../Components/Board/Board';
+import Room from "../Components/video/Room";
+import CreateRoom from "../Components/video/CreateRoom";
 
 
 function Routes() {
@@ -22,7 +24,7 @@ function Routes() {
     <Board/>
   </Route>
 
-
+  <Route path="/room/:roomID" component={Room} />
 
 
 
@@ -30,6 +32,7 @@ function Routes() {
   </Switch>
         </div>
     )
+
 }
 
-export default Routes
+export default Routes;

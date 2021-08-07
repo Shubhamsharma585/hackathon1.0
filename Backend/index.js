@@ -1,136 +1,60 @@
-const express = require('express');
-const socket = require('socket.io');
-const { ExpressPeerServer } = require('peer');
-const groupCallHandler = require('./groupCallHandler');
-const { v4: uuidv4 } = require('uuid');
-const PORT = 5000;
+const express = require("express");
+const http = require("http");
 const app = express();
+const server = http.createServer(app);
+const socket = require("socket.io");
+const io = socket(server);
 const cors = require("cors")
-
 app.use(cors())
-app.use(express.json());
-
+const users = {};
+const socketToRoom = {};
 const connect = require("./src/config/db");
-
 const UserController = require("./src/controllers/user.controller")
 const GroupController = require("./src/controllers/group.controller")
 
 app.use("/user", UserController)
 app.use("/groups", GroupController)
-// const server = async () => {
-//   await connect();
-//   app.listen(PORT, () => {
-//     console.log("listening to " + PORT);
-//   });
-// }; 
-// server();
-const server = app.listen(PORT, async () => {
-  await connect()
-  console.log(`server is listening on port ${PORT}`);
-  console.log(`http://localhost:${PORT}`);
-});
-const peerServer = ExpressPeerServer(server, {
-  debug: true
-});
-app.use('/peerjs', peerServer);
-groupCallHandler.createPeerServerListeners(peerServer);
 
-const io = socket(server, {
-  cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
-  }
-});
+io.on('connection', socket => {
+  socket.on("join room", roomID => {
+    if (users[roomID]) {
+      const length = users[roomID].length;
+      if (length === 4) {
+        socket.emit("room full");
+        return;
+      }
+      users[roomID].push(socket.id);
+    } else {
+      users[roomID] = [socket.id];
+    }
+    socketToRoom[socket.id] = roomID;
+    const usersInThisRoom = users[roomID].filter(id => id !== socket.id);
 
-let peers = [];
-let groupCallRooms = [];
+    socket.emit("all users", usersInThisRoom);
 
-const broadcastEventTypes = {
-  ACTIVE_USERS: 'ACTIVE_USERS',
-  GROUP_CALL_ROOMS: 'GROUP_CALL_ROOMS'
-};
+  });
 
-io.on('connection', (socket) => {
-  socket.emit('connection', null);
-  console.log('new user connected');
-  console.log(socket.id);
+  socket.on("sending signal", payload => {
+    io.to(payload.userToSignal).emit('user joined', { signal: payload.signal, callerID: payload.callerID });
+  });
 
-  socket.on('register-new-user', (data) => {
-    peers.push({
-      username: data.username,
-      socketId: data.socketId
-    });
-    console.log('registered new user');
-    console.log(peers);
-
-    io.sockets.emit('broadcast', {
-      event: broadcastEventTypes.ACTIVE_USERS,
-      activeUsers: peers
-    });
-
-    io.sockets.emit('broadcast', {
-      event: broadcastEventTypes.GROUP_CALL_ROOMS,
-      groupCallRooms
-    });
+  socket.on("returning signal", payload => {
+    io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id });
   });
 
   socket.on('disconnect', () => {
-    console.log('user disconnected');
-    peers = peers.filter(peer => peer.socketId !== socket.id);
-    io.sockets.emit('broadcast', {
-      event: broadcastEventTypes.ACTIVE_USERS,
-      activeUsers: peers
-    });
-
-    groupCallRooms = groupCallRooms.filter(room => room.socketId !== socket.id);
-    io.sockets.emit('broadcast', {
-      event: broadcastEventTypes.GROUP_CALL_ROOMS,
-      groupCallRooms
-    });
+    const roomID = socketToRoom[socket.id];
+    let room = users[roomID];
+    if (room) {
+      room = room.filter(id => id !== socket.id);
+      users[roomID] = room;
+    }
   });
 
-  socket.on('group-call-register', (data) => {
-    const roomId = uuidv4();
-    socket.join(roomId);
-
-    const newGroupCallRoom = {
-      peerId: data.peerId,
-      hostName: data.username,
-      socketId: socket.id,
-      roomId: roomId
-    };
-
-    groupCallRooms.push(newGroupCallRoom);
-    io.sockets.emit('broadcast', {
-      event: broadcastEventTypes.GROUP_CALL_ROOMS,
-      groupCallRooms
-    });
-  });
-
-  socket.on('group-call-join-request', (data) => {
-    io.to(data.roomId).emit('group-call-join-request', {
-      peerId: data.peerId,
-      streamId: data.streamId
-    });
-    socket.join(data.roomId);
-  });
-
-  socket.on('group-call-user-left', (data) => {
-    socket.leave(data.roomId);
-
-    io.to(data.roomId).emit('group-call-user-left', {
-      streamId: data.streamId
-    });
-  });
-
-  socket.on('group-call-closed-by-host', (data) => {
-    groupCallRooms = groupCallRooms.filter(room => room.peerId !== data.peerId);
-
-    io.sockets.emit('broadcast', {
-      event: broadcastEventTypes.GROUP_CALL_ROOMS,
-      groupCallRooms
-    });
-  });
 });
 
 
+server.listen(8000, async () => {
+  await connect()
+  console.log(`server is listening on port 8000`);
+});

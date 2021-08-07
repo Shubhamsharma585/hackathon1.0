@@ -16,16 +16,19 @@ router.patch("/:id", async (req, res) => {
 
 
 router.get("/", async (req, res) => {
-    const groups = await Group.find({}).populate("admin");
+    let topic=req.query.topic;
+    topic=topic?topic!==""?{topic}:{}:{};
+    
+    const groups = await Group.find(topic).populate("admin");
     res.json({ data: groups });
  }); 
 
-router.get("/topic", async (req, res) => {
-    const topic=req.query.topic; 
-    const groups = await Group.find({topic}).populate("admin");
-    res.json({ data: groups });
- }); 
- 
+// router.get("/topic", async (req, res) => {
+//     const topic=req.query.topic; 
+//     const groups = await Group.find({topic}).populate("admin");
+//     res.json({ data: groups });
+//  }); 
+
 router.get("/:id", async (req, res) => {
    const id=req.params.id;
    const group = await Group.findById(id).populate("members_id").populate("admin");
