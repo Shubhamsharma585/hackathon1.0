@@ -10,6 +10,8 @@ import { connectWithWebSocket } from './utils/wssConnection/wssConnection';
 import Dashboard from './Components/Dashboard/Dashboard';
 // import LoginPage from './LoginPage/LoginPage';
 import LoginPage from './Components/LoginPage/LoginPage';
+import Landing from './Components/landing/Landing';
+import Nav from './Components/navbar/Nav';
 
 function App() {
   useEffect(() => {
@@ -17,11 +19,15 @@ function App() {
   }, []);
   return (
     <Router>
+      <Nav />
       <Switch>
+        <Route path="/" exact>
+          <Landing />
+        </Route>
         <Route path='/dashboard'>
           <Dashboard />
         </Route>
-        <Route path='/'>
+        <Route path='/login'>
           <LoginPage />
         </Route>
       </Switch>
