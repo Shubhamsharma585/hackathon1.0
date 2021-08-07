@@ -10,7 +10,7 @@ function Nav({handleopenform}) {
 
     const name = useSelector(state => state.regi.username)
   
-    console.log(name)
+    //console.log(name)
 
     return (  
         <div className={Styles.nav} id="nav">

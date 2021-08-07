@@ -14,11 +14,14 @@ function DashRight()
 
      const [groups1, setGroups1] = useState([])
    
-    console.log(groups1)
+    //console.log(groups1)
+
+
 
     const [sea, setSea] = useState("")
     const startsea = () => {
-        
+        var grplist = groups1.filter((itm) => itm.topic == sea); 
+        setGroups1(grplist)
     }
 
 
@@ -35,7 +38,7 @@ function DashRight()
     return (
         <div>
              <h4 style={{marginBottom:"0px", fontWeight:"400", color:"grey"}}>
-                 Live Sessions
+                Enroll First to join Live Sessions
             </h4>
 
             <div style={{display:"flex", flexDirection:"row", marginLeft:"10%"}}>
@@ -60,6 +63,7 @@ function DashRight()
                 qualification={itm.qualification}
                 topic={itm.topic}
                 grpid={itm._id}
+                members={itm.members_id}
                 />
                })}         
             </div>

@@ -25,7 +25,7 @@ router.get("/topic", async (req, res) => {
     const groups = await Group.find({topic}).populate("admin");
     res.json({ data: groups });
  }); 
-
+ 
 router.get("/:id", async (req, res) => {
    const id=req.params.id;
    const group = await Group.findById(id).populate("members_id").populate("admin");
