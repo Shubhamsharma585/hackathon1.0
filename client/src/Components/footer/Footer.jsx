@@ -7,7 +7,7 @@ import gm1 from "../../Images/gm1.png"
 
 function Footer() {
 
-
+ 
 
     return (
       <div>

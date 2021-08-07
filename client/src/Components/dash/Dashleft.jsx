@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react'
 import Styles from "./Dashleft.module.css";
 import { Button, TextField } from "@material-ui/core";
@@ -6,19 +5,22 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import SendIcon from "@material-ui/icons/Send";
-import { v4 as uuid } from "uuid";
 import CreateRoom from "../video/CreateRoom";
-
+import Axios from "axios"
 
 
 function DashLeft() {
   const dispatch = useDispatch();
 
   const userid = useSelector((state) => state.regi.object_id);
+
   const history = useHistory();
   const [groupname, setGroupname] = useState("");
   const [qualification, setQualification] = useState("");
   const [topic, setTopic] = useState("");
+  const [enr, setEnr] = useState(false);
+  const [grpid, setGrpid] = useState("")
+  
 
 
     const name = useSelector(state => state.regi.username)
@@ -34,15 +36,30 @@ function DashLeft() {
       members_id: [],
     };
 
-
+    if(userid)
+    {
+      console.log(pay)
+      setEnr(true);
+      Axios.post("http://localhost:8000/groups",{
+        ...pay
+      }).then((res) => {
+          setGrpid(res.data.data._id)
+          history.push(`/room/${res.data.data._id}`)
+      })
+    }
+    else
+    {
+      setEnr(false)
+    }
+   
     setGroupname("");
     setQualification("");
     setTopic("");
-    const id = uuid(); //id of video
-    history.push(`/room/${id}`);
+
   };
 
   
+
   return (
     <div>
       <div className={Styles.left}>
@@ -103,6 +120,8 @@ function DashLeft() {
             />
           </div>
         </div>
+        
+        {(userid)?(""):(<p style={{color:"red", marginBottom:"0px"}}>Please Enroll first to make group</p>)}
 
         <Button
           variant="contained"
