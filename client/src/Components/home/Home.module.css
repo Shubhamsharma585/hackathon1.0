@@ -13,14 +13,29 @@
      padding-top: 20%;
  }
 
+
+ 
+.header1
+{    
+    margin: auto;
+    justify-content: center;
+    color:white;
+    font-weight: 600;
+
+}
+
  
 
 .header
 {    
     margin: auto;
+    border: 0px solid black;
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 40px;
     justify-content: center;
     color: white;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-iteration-count: infinite;
@@ -33,9 +48,9 @@
 @keyframes up-down
 {
     0% {
-        transform: translateY(10px);
+        transform: translateY(6px);
     }
     100% {
-        transform: translateY(-10px);
+        transform: translateY(-6px);
     }
 }
