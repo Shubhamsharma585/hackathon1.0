@@ -6,9 +6,10 @@ const { v4: uuidv4 } = require('uuid');
 const PORT = 5000;
 const app = express();
 const cors = require("cors")
+const Document=require("./src/models/document.model")
 
 app.use(cors())
-app.use(express.json());
+app.use(express.json()); 
 
 const connect = require("./src/config/db");
 
@@ -56,18 +57,40 @@ io.on('connection', (socket) => {
   console.log(socket.id);
   
 // white board code backend
-  socket.on("get-document",documentId=>{
-    const data="";
-    socket.join(documentId);
-    socket.emit("load-document",data);
-    socket.on("send-changes",delta=>{
-      socket.broadcast.to(documentId).emit("receive-changes", delta);
+  // socket.on("get-document",documentId=>{
+  //   const data="";
+  //   socket.join(documentId);
+  //   socket.emit("load-document",data);
+  //   socket.on("send-changes",delta=>{
+  //     socket.broadcast.to(documentId).emit("receive-changes", delta);
+  //   })
+  // })
+  var defaultValue=""
+  socket.on("get-document", async documentId => {
+    const document = await findOrCreateDocument(documentId)
+    socket.join(documentId)
+    socket.emit("load-document", document.data)
+
+    socket.on("send-changes", delta => {
+      socket.broadcast.to(documentId).emit("receive-changes", delta)
+    })
+
+    socket.on("save-document", async data => {
+      await Document.findByIdAndUpdate(documentId, { data })
     })
   })
 
+  async function findOrCreateDocument(id) {
+    if (id == null) return
+  
+    const document = await Document.findById(id)
+    if (document) return document
+    return await Document.create({ _id: id, data: defaultValue })
+  }
+
   //white board end code 
 
-
+ 
 
   socket.on('register-new-user', (data) => {
     peers.push({
