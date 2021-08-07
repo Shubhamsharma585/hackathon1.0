@@ -3,7 +3,7 @@ const User=require("./user.model")
 
 const groupSchema = mongoose.Schema({
     name:String,
-    qualification:String,
+    qualification:String, 
     topic:String,
     limit:Number,
     admin:{type:mongoose.Schema.Types.ObjectId, ref:"user"},

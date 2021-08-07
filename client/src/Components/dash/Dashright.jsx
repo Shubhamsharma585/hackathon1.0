@@ -3,6 +3,8 @@ import SendIcon from '@material-ui/icons/Send';
 import Styles from "./Dashright.module.css"
 import Group from "../group/Group"
 import { useDispatch, useSelector } from "react-redux"
+import Axios from "axios"
+import { Link } from "react-router-dom";
 
 
 
@@ -10,27 +12,33 @@ function DashRight()
 {
 
 
-    const dispatch = useDispatch();
-    const groups1 = []
+     const [groups1, setGroups1] = useState([])
    
-    console.log(groups1)
+    //console.log(groups1)
+
+
 
     const [sea, setSea] = useState("")
     const startsea = () => {
-        
+        var grplist = groups1.filter((itm) => itm.topic == sea); 
+        setGroups1(grplist)
     }
 
 
 
     useEffect(() => {
-      // fetchall()
+        Axios.get("http://localhost:8000/groups")
+        .then((res) => {
+          setGroups1(res.data.data)
+        })
+
     }, [])
 
 
     return (
         <div>
              <h4 style={{marginBottom:"0px", fontWeight:"400", color:"grey"}}>
-                 Live Sessions
+                Enroll First to join Live Sessions
             </h4>
 
             <div style={{display:"flex", flexDirection:"row", marginLeft:"10%"}}>
@@ -50,12 +58,14 @@ function DashRight()
             </div>
            
             <div className={Styles.cont}>
-                {groups1?.map((itm) => { return <Group
+                {groups1?.map((itm) => { return  <Group
                 name={itm.name}
                 qualification={itm.qualification}
                 topic={itm.topic}
                 grpid={itm._id}
-                /> })}         
+                members={itm.members_id}
+                />
+               })}         
             </div>
         </div>
     )

@@ -3,12 +3,17 @@ import Styles from "./Group.module.css"
 import { Button, Avatar} from "@material-ui/core"
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import Axios from "axios"
+
+ 
 
 
+function Group({name, qualification, topic, grpid, members }) {
 
-
-function Group({name, qualification, topic, grpid }) {
-
+    const usrname = useSelector(state => state.regi.username)
+    const usrid = useSelector(state => state.regi.object_id)
+  
  
     const dispatch = useDispatch();
     const [seed, setSeed] = useState("")
@@ -19,9 +24,13 @@ function Group({name, qualification, topic, grpid }) {
 
 
 
-
     const joining = () => {
-          //dispatch()
+        Axios.patch(`http://localhost:5000/groups/${grpid}`, {
+            members_id:[...members, usrid]
+        })
+        .then((res) => {
+            console.log(res.data.data)
+        })
     }
 
 
@@ -37,13 +46,21 @@ function Group({name, qualification, topic, grpid }) {
                <p className={Styles.topic}>{topic}</p>
                
             </div>
-            <Button 
+
+            <Link to={`/Group/${grpid}`}  
+            variant="inherit" 
+            color="primary" 
+            style={{textDecoration:"none"}}
+            key={grpid}>  
+             <Button 
                  variant="contained" 
                  style={{marginTop:"13px", height:"25px", width:"35px", fontSize:"12px"}}
                  endIcon={<ArrowForwardIosIcon/>}
                  onClick={() => joining()}
                  >Join
             </Button>
+            </Link>
+          
             
         </div>
     )

@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+
+import React, {useState, useEffect} from 'react'
 import Styles from "./Dashleft.module.css";
 import { Button, TextField } from "@material-ui/core";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import SendIcon from "@material-ui/icons/Send";
-import { makinggrp } from "../../Redux/Groups/action";
 import { v4 as uuid } from "uuid";
 import CreateRoom from "../video/CreateRoom";
 
+
+
 function DashLeft() {
   const dispatch = useDispatch();
-  const isloading = useSelector((state) => state.grp.isloading);
+
   const userid = useSelector((state) => state.regi.object_id);
   const history = useHistory();
   const [groupname, setGroupname] = useState("");
   const [qualification, setQualification] = useState("");
   const [topic, setTopic] = useState("");
+
+
+    const name = useSelector(state => state.regi.username)
+    //console.log(name)
 
   const makegrp = () => {
     var pay = {
@@ -28,7 +34,6 @@ function DashLeft() {
       members_id: [],
     };
 
-    dispatch(makinggrp(pay));
 
     setGroupname("");
     setQualification("");
@@ -37,6 +42,7 @@ function DashLeft() {
     history.push(`/room/${id}`);
   };
 
+  
   return (
     <div>
       <div className={Styles.left}>
