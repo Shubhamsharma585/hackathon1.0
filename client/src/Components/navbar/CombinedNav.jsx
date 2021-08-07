@@ -80,7 +80,7 @@ function CombinedNav() {
         BackdropProps={{
           timeout: 500,
         }}
-      >
+      > 
         <Fade in={open}>
           <div className={classes.paper}>
           <div>
