@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Styles from "./Nav.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { Link as Scro } from 'react-scroll'
-import { openingform } from "../../Redux/Registration/action"
-import Popup from "../popup/Popup"
+
   
 
 function Nav({handleopenform}) { 

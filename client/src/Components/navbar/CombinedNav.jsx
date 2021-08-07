@@ -7,7 +7,6 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { useDispatch, useSelector } from "react-redux"
-import { registering } from "../../Redux/Registration/action"
 import Nav from "./Nav"
 
 
@@ -57,7 +56,7 @@ function CombinedNav() {
            user_name: username
         }
 
-        dispatch(registering(pay))
+        //dispatch(registering(pay))
         handleClose()
     }
 
