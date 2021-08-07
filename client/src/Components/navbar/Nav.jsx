@@ -1,36 +1,32 @@
 import React, { useState } from 'react'
 import Styles from "./Nav.module.css"
-import { Link } from 'react-router-dom'
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import { useDispatch, useSelector } from "react-redux"
+import { Link as Scro } from 'react-scroll'
 
+  
 
-
-function Nav() {
-
+function Nav({handleopenform}) { 
  
-
-
-
-    const user = useSelector(state => state.regi.username)
 
  
 
     return (  
-        <div className={Styles.nav}>
+        <div className={Styles.nav} id="nav">
             
-            <p className={Styles.home}>
-                 Home
+            <p className={Styles.home}> 
+                Home
             </p>
 
             <p className={Styles.about}>
+            <Scro  to="footer" spy={true} smooth={true}> 
                 About
+            </Scro>
             </p>
 
             <p className={Styles.user}>
-              {(user)?(user):("User")}
-            </p>
-   
+            <p onClick={handleopenform} style={{marginTop:"0px"}}>Enroll</p>
+            </p> 
+       
        </div>
        ) 
 }
