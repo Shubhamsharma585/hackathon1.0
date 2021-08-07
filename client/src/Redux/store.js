@@ -1,10 +1,12 @@
 
 import { applyMiddleware, combineReducers, compose, createStore } from "redux"
 import thunk from "redux-thunk"
+import regireducer from "./Registration/regireducer"
+
 
  
 const rootreducer = combineReducers({
-
+     regi: regireducer,
 })
 
 

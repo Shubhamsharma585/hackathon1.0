@@ -2,9 +2,9 @@
 import React from 'react'
 import Styles from "./Home.module.css"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link as Scro } from 'react-scroll'
+//import { Link as Scro } from 'react-scroll'
 
-
+ 
 
 
 function Home() {
@@ -24,7 +24,7 @@ function Home() {
             </h1>
 
 
-            <Scro  to="dash" spy={true} smooth={true}> 
+            {/* <Scro  to="dash" spy={true} smooth={true}>  */}
 
               <div className={Styles.start}>
               <h1 className={Styles.header} style={{cursor:"pointer"}}>
@@ -33,7 +33,7 @@ function Home() {
               </h1>
               </div>
                   
-            </Scro>
+            {/* </Scro> */}
            
 
         </div>
