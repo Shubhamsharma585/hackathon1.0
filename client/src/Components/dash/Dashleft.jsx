@@ -23,7 +23,7 @@ function DashLeft() {
       name: groupname,
       qualification: qualification,
       topic: topic,
-      limit: 50,
+      limit: 50, 
       admin: userid,
       members_id: [],
     };

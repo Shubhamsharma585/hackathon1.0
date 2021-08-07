@@ -20,15 +20,12 @@
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
-
     "simple-peer": "9.6.2",
     "socket.io-client": "^2.3.0",
     "style-components": "^0.1.0",
     "styled-components": "^5.1.0",
     "uuid": "^7.0.3",
     "web-vitals": "^1.1.2"
-
-  
   },
   "scripts": {
     "start": "react-scripts start",
