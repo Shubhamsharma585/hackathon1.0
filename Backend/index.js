@@ -14,6 +14,7 @@ const GroupController = require("./src/controllers/group.controller")
 
 app.use("/user", UserController)
 app.use("/groups", GroupController)
+
 io.on('connection', socket => {
   socket.on("join room", roomID => {
     if (users[roomID]) {
@@ -30,6 +31,7 @@ io.on('connection', socket => {
     const usersInThisRoom = users[roomID].filter(id => id !== socket.id);
 
     socket.emit("all users", usersInThisRoom);
+
   });
 
   socket.on("sending signal", payload => {
