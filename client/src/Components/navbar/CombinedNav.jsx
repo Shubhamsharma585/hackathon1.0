@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Button, TextField } from "@material-ui/core"
-import Styles from "./Popup.module.css"
+import Styles from "./CombinedNav.module.css"
 import SendIcon from '@material-ui/icons/Send';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -8,6 +8,9 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { useDispatch, useSelector } from "react-redux"
 import { registering } from "../../Redux/Registration/action"
+import Nav from "./Nav"
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,58 +31,44 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
+function CombinedNav() {
 
 
-function Popup() {
-
+    const classes = useStyles();
     const dispatch = useDispatch();
-    const isloading = useSelector(state => state.regi.isloading)
-    const user = useSelector(state => state.regi.username)
-   
-
-
     const [fullname, setFullname] = useState("")
     const [username, setUsername] = useState("")
 
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-  
-  
-     const handleOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+    const [open, setOpen] = useState(false);
 
 
-    const submit = () => {
+
+    const handleOpen = () => {
+        setOpen(true);
+      };
+  
+      const handleClose = () => {
+        setOpen(false);
+      };
+  
+      const submit = () => {
         var pay = {
            name: fullname,
            user_name: username
         }
 
         dispatch(registering(pay))
-        handleClose();
+        handleClose()
     }
 
-
-    useEffect(() => {
-       setTimeout(() => {
-          handleOpen()
-       }, 5000)
-       
-    }, [])
-  
 
 
 
     return (
-        <div className={Styles.cont}> 
-        
 
-      <Modal
+        <div>
+       
+       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
@@ -93,8 +82,7 @@ function Popup() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-           
-              <div>
+          <div>
               <TextField
               variant="outlined"
               style ={{width: '80%', height:"15px", marginBottom:"30px", marginTop:"30px", marginLeft:"30px"}}  
@@ -126,19 +114,17 @@ function Popup() {
               onClick={() => submit()}
               >Enroll
               </Button>
-                        </div>
-                      </Fade>
-                    </Modal>
+
+          </div>
+        </Fade>
+      </Modal>
 
 
 
+
+            <Nav handleopenform={handleOpen} />
         </div>
     )
 }
 
-
-
-export default Popup;
-
-
-
+export default CombinedNav;

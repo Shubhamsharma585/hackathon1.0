@@ -11,7 +11,7 @@ function DashRight()
 
 
     const dispatch = useDispatch();
-    const groups1 = useSelector(state => state.regi.groups)
+    const groups1 = []
    
     console.log(groups1)
 

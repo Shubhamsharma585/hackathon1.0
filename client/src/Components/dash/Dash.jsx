@@ -4,7 +4,7 @@ import Dashleft from "./Dashleft"
 import Dashright from "./Dashright"
 
 
-
+ 
 
 
 function Dash() {
@@ -13,7 +13,7 @@ function Dash() {
    
 
     return (
-        <div className={Styles.dash}>
+        <div className={Styles.dash} id="dash">
             <div className={Styles.left}>
                 <div className={Styles.boxl}>
                    <Dashleft/>

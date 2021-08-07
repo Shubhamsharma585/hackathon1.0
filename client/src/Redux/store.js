@@ -7,8 +7,7 @@ import grpreducer from "./Groups/grpreducer"
  
  
 const rootreducer = combineReducers({
-    regi: regireducer,
-    grp: grpreducer
+
 })
 
 

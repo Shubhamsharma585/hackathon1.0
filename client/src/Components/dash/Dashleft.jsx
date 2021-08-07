@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { makeStyles } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
 import { makinggrp } from "../../Redux/Groups/action" 
-
+import { openingform } from "../../Redux/Registration/action"
  
   
  
@@ -14,12 +14,14 @@ function DashLeft()
 {
 
     const dispatch = useDispatch();
-    const isloading = useSelector(state => state.grp.isloading)
-    const userid =  useSelector(state => state.regi.object_id)
+
 
     const [groupname, setGroupname] = useState("") 
     const [qualification, setQualification] = useState("")
     const [topic, setTopic] = useState("")
+    const [enr, setEnr] = useState(true)
+
+
 
 
     const makegrp = () => {
@@ -28,22 +30,22 @@ function DashLeft()
             qualification: qualification,
             topic: topic,
             limit: 50,
-            admin: userid,
+            admin: "",
             members_id:[]
         }
-        
-        dispatch(makinggrp(pay))
-
+          
         setGroupname("")
         setQualification("")
         setTopic("")
     }
 
+ 
 
     return (
         <div>
              <div className={Styles.left}>
-       
+                 
+             
                 <div className={Styles.inp}>
                     <h4 style={{marginBottom:"0px", fontWeight:"400", color:"grey"}}>Don't Find Your Group? Create new</h4>
                    
@@ -85,7 +87,7 @@ function DashLeft()
                   </div>
                  
          </div>
-               
+  
 
          <Button 
          variant="contained" 
