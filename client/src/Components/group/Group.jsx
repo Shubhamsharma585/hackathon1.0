@@ -25,7 +25,7 @@ function Group({name, qualification, topic, grpid, members }) {
 
 
     const joining = () => {
-        Axios.patch(`http://localhost:5000/groups/${grpid}`, {
+        Axios.patch(`http://localhost:5000/room/${grpid}`, {
             members_id:[...members, usrid]
         })
         .then((res) => {
@@ -47,7 +47,7 @@ function Group({name, qualification, topic, grpid, members }) {
                
             </div>
 
-            <Link to={`/Group/${grpid}`}  
+            <Link to={`/room/${grpid}`}  
             variant="inherit" 
             color="primary" 
             style={{textDecoration:"none"}}

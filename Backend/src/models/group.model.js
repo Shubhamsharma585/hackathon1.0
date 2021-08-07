@@ -7,9 +7,9 @@ const groupSchema = mongoose.Schema({
     topic:String,
     limit:Number,
     admin:{type:mongoose.Schema.Types.ObjectId, ref:"user"},
-    members_id:[{type:mongoose.Schema.Types.ObjectId, ref:"user"}]
+    members_id:[{type:mongoose.Schema.Types.ObjectId, ref:"user"}],
   });
-  
+   
   const Group = mongoose.model("group", groupSchema);
   
   module.exports=Group;

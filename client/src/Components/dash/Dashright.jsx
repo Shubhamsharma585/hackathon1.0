@@ -37,9 +37,9 @@ function DashRight()
 
     return (
         <div>
-             <h4 style={{marginBottom:"0px", fontWeight:"400", color:"grey"}}>
+             <h4 style={{marginBottom:"0px", marginLeft:"60px",fontWeight:"400", color:"grey"}}>
                 Enroll First to join Live Sessions
-            </h4>
+            </h4> 
 
             <div style={{display:"flex", flexDirection:"row", marginLeft:"10%"}}>
             <input 

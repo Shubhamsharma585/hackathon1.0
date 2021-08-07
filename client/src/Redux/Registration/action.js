@@ -19,8 +19,8 @@ export const registering = (payload) => dispatch => {
         ...payload
     })
         .then((res) => {
-            console.log(res.data.data)
-            // dispatch(registersuccess(res.data.data))
+            //console.log(res.data.data)
+            dispatch(registersuccess(res.data.data))
         })
 }
 

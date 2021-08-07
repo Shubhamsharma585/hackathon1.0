@@ -3,16 +3,20 @@ const router = express.Router();
 const User = require("../models/user.model");
 
 
+
 router.post("/", async (req, res) => { 
+
       const user_name=req.body.user_name;
       let user = await User.findOne({user_name});
       if(user){
-         return res.json({message:"User name alredy exist!"})
+         return res.json({message:"User name alredy exist!"}) 
       }
-   
+    
    user = await User.create(req.body);
   res.json({ data: user });
 })
+
+
 
 router.get("/", async (req, res) => {
     const user_name=req.query.username;
