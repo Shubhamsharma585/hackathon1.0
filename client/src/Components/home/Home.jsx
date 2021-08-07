@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Styles from "./Home.module.css"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -37,6 +38,7 @@ function Home() {
 
         </div>
     )
+
 }
 
-export default Home
+export default Home;

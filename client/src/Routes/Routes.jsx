@@ -1,10 +1,10 @@
-
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import WhiteBoard from "../Components/whiteboard/WhiteBoard";
+import { Route, Switch } from "react-router-dom";
 import Nav from "../Components/navbar/Nav";
 import Landing from "../Components/landing/Landing";
-import {v4 as uuid} from "uuid";
+import CreateRoom from "../Components/video/CreateRoom";
+import Room from "../Components/video/Room";
+
 function Routes() {
   return (
     <div>
@@ -13,16 +13,10 @@ function Routes() {
         <Route path="/" exact>
           <Landing />
         </Route>
-        <Route path="/group/" exact>
-          <Redirect to={`/group/${uuid()}`} />
-        </Route>
-        <Route path="/group/:id" exact>
-          <WhiteBoard />
-        </Route>
+        <Route path="/room/:roomID" component={Room} />
       </Switch>
     </div>
   );
-
 }
 
 export default Routes;
