@@ -12,9 +12,9 @@
            height: 40px;
            margin: auto;
            margin: 0;
-           background-color: rgb(154, 185, 189);
+           background: url("../../Images/gs4.jpeg");
            text-align: center;
-           color: white;
+           color: black;
            font-size: 18px;
            padding-bottom: 15px;
            font-weight: 400;
@@ -33,11 +33,15 @@
       .about
       {
           grid-area: h;  
-          cursor: pointer;       
+          border: 0px solid black;
+          cursor: pointer;   
+          height: 20px;    
       }
 
       .user
       {
           grid-area: i;  
+          border: 0px solid black;
           cursor: pointer;       
+          height: 20px;   
       }

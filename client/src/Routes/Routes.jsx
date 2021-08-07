@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Nav from "../Components/navbar/Nav";
+import CombinedNav from "../Components/navbar/CombinedNav";
 import Landing from "../Components/landing/Landing";
 
 function Routes() {
   return (
     <div>
-      <Nav />
+      <CombinedNav />
       <Switch>
         <Route path="/" exact>
           <Landing />
