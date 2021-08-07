@@ -1,0 +1,56 @@
+
+ .home
+ {
+     background: url("../../Images/gs4.jpeg");
+     background-position: center;
+     background-repeat: no-repeat;
+     width: 100%;
+     height: 430px;
+     margin-top: 0px;
+     opacity: 0.9;
+     justify-content: center;
+     text-align: center;
+     padding-top: 20%;
+ }
+
+
+ 
+.header1
+{    
+    margin: auto;
+    justify-content: center;
+    color:white;
+    font-weight: 600;
+
+}
+
+ 
+
+.header
+{    
+    margin: auto;
+    border: 0px solid black;
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 40px;
+    justify-content: center;
+    color: white;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    animation-name: up-down;  
+}
+
+@keyframes up-down
+{
+    0% {
+        transform: translateY(6px);
+    }
+    100% {
+        transform: translateY(-6px);
+    }
+}

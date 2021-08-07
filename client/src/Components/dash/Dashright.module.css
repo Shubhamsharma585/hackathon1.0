@@ -1,0 +1,29 @@
+
+.ser
+{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+    color: blue;
+    padding-left: 10px;
+}
+
+.ser:focus
+{
+    outline: 0px;
+}
+
+.cont
+{
+    border:0px solid lightgray;
+    border-radius: 5px;
+    background-color: rgb(236, 244, 243);
+    height: 350px;
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+    overflow: scroll;
+    padding: 20px;
+}
