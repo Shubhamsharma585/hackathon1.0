@@ -1,10 +1,12 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import CombinedNav from "../Components/navbar/CombinedNav"
 import Landing from "../Components/landing/Landing"
-import Board from '../Components/Board/Board';
-import Room from "../Components/video/Room";
-import CreateRoom from "../Components/video/CreateRoom";
+import WhiteBoard from "../Components/whiteboard/WhiteBoard"
+import { v4 as uuid } from "uuid"
+
+
+
 
 
 function Routes() {
@@ -16,17 +18,13 @@ function Routes() {
   <Switch> 
 
   <Route path="/" exact>
-    <Landing/>
+    <Landing/> 
   </Route>
 
 
-  <Route path="/Group/:id" exact>
-    <Board/>
+  <Route path="/group/:id" exact>
+          <WhiteBoard />
   </Route>
-
-  <Route path="/room/:roomID" component={Room} />
-
-
 
 
   </Switch>
