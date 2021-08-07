@@ -6,7 +6,6 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import SendIcon from "@material-ui/icons/Send";
-import { makinggrp } from "../../Redux/Groups/action";
 import { v4 as uuid } from "uuid";
 import CreateRoom from "../video/CreateRoom";
 
@@ -14,7 +13,7 @@ import CreateRoom from "../video/CreateRoom";
 
 function DashLeft() {
   const dispatch = useDispatch();
-  const isloading = useSelector((state) => state.grp.isloading);
+
   const userid = useSelector((state) => state.regi.object_id);
   const history = useHistory();
   const [groupname, setGroupname] = useState("");
@@ -22,7 +21,6 @@ function DashLeft() {
   const [topic, setTopic] = useState("");
 
 
-    const dispatch = useDispatch();
     const name = useSelector(state => state.regi.username)
     //console.log(name)
 
@@ -36,7 +34,6 @@ function DashLeft() {
       members_id: [],
     };
 
-    dispatch(makinggrp(pay));
 
     setGroupname("");
     setQualification("");

@@ -15,7 +15,7 @@ function Board() {
 
 
     useEffect(() => {
-        Axios.get(`http://localhost:5000/groups/${id}`)
+        Axios.get(`http://localhost:8000/groups/${id}`)
         .then((res) => {
             setGrp(res.data.data)
         })

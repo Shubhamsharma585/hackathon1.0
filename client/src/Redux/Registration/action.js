@@ -12,20 +12,20 @@ import Axios from "axios"
 
 export const registering = (payload) => dispatch => {
     //console.log("registering")
-    //console.log(payload)
+    console.log(payload)
 
     dispatch(registerrequest())
-    Axios.post("http://localhost:5000/user", {
+    Axios.post("http://localhost:8000/user", {
         ...payload
     })
         .then((res) => {
-            //console.log(res.data.data)
-            dispatch(registersuccess(res.data.data))
+            console.log(res.data.data)
+            // dispatch(registersuccess(res.data.data))
         })
 }
 
 
-
+ 
 const registerrequest = (payload) => {
     return {
         type: REGISTER_REQUEST,

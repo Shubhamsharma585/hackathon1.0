@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Styles from "./Nav.module.css"
 import { useDispatch, useSelector } from "react-redux"
-import { Link as Scro } from 'react-scroll'
+//import { Link as Scro } from 'react-scroll'
 import { Link } from "react-router-dom"
   
 
@@ -25,9 +25,9 @@ function Nav({handleopenform}) {
             
 
             <p className={Styles.about}>
-            <Scro  to="footer" spy={true} smooth={true}> 
+            {/* <Scro  to="footer" spy={true} smooth={true}>  */}
                 About
-            </Scro>
+            {/* </Scro> */}
             </p>
           
 

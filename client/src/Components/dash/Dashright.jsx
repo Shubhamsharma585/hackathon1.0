@@ -27,7 +27,7 @@ function DashRight()
 
 
     useEffect(() => {
-        Axios.get("http://localhost:5000/groups")
+        Axios.get("http://localhost:8000/groups")
         .then((res) => {
           setGroups1(res.data.data)
         })
