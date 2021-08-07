@@ -23,13 +23,13 @@ function DashRight()
         var grplist = groups1.filter((itm) => itm.topic == sea); 
         setGroups1(grplist)
     }
-
+ 
 
 
     useEffect(() => {
-        Axios.get("http://localhost:8000/groups")
+        Axios.get("http://localhost:5000/groups")
         .then((res) => {
-          setGroups1(res.data.data)
+          setGroups1(res.data.data.reverse())
         })
 
     }, [])

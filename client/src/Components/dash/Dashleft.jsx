@@ -5,7 +5,6 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import SendIcon from "@material-ui/icons/Send";
-import CreateRoom from "../video/CreateRoom";
 import Axios from "axios"
 
 
@@ -39,16 +38,16 @@ function DashLeft() {
     if(userid)
     {
       console.log(pay)
-      setEnr(true);
-      Axios.post("http://localhost:8000/groups",{
+      setEnr(true); 
+      Axios.post("http://localhost:5000/groups",{
         ...pay
       }).then((res) => {
-          setGrpid(res.data.data._id)
-          history.push(`/room/${res.data.data._id}`)
+          setGrpid(res.data.data._id) 
+          history.push(`/group/${res.data.data._id}`)
       })
     }
     else
-    {
+    { 
       setEnr(false)
     }
    
