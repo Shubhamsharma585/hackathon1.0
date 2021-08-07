@@ -53,6 +53,7 @@
     font-size: 30px;
     color: rgb(15, 44, 79);
     cursor: default;
+    margin-left: 40%;
 }
 
 .abtdetail
@@ -66,4 +67,5 @@
 .support
 {
     color: gray;
+    margin-left: 21%;
 }
