@@ -1,14 +1,31 @@
 import './App.css';
-import Routes from "./Routes/Routes"
-
-
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import { useEffect } from 'react';
+import { connectWithWebSocket } from './utils/wssConnection/wssConnection';
+// import Dashboard from './Dashboard/Dashboard';
+import Dashboard from './Components/Dashboard/Dashboard';
+// import LoginPage from './LoginPage/LoginPage';
+import LoginPage from './Components/LoginPage/LoginPage';
 
 function App() {
+  useEffect(() => {
+    connectWithWebSocket();
+  }, []);
   return (
-    <div className="App">
-       <Routes/>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/dashboard'>
+          <Dashboard />
+        </Route>
+        <Route path='/'>
+          <LoginPage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
