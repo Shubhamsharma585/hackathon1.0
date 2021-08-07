@@ -8,7 +8,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { useDispatch, useSelector } from "react-redux"
 import Nav from "./Nav"
-
+import Axios from "axios"
+import { registering } from '../../Redux/Registration/action';
 
 
 
@@ -37,8 +38,8 @@ function CombinedNav() {
     const dispatch = useDispatch();
     const [fullname, setFullname] = useState("")
     const [username, setUsername] = useState("")
-
-    const [open, setOpen] = useState(false);
+  
+    const [open, setOpen] = useState(false); 
 
 
 
@@ -50,13 +51,14 @@ function CombinedNav() {
         setOpen(false);
       };
   
+
       const submit = () => {
         var pay = {
            name: fullname,
            user_name: username
         }
-
-        //dispatch(registering(pay))
+  
+      dispatch(registering(pay))
         handleClose()
     }
 
@@ -120,8 +122,7 @@ function CombinedNav() {
 
 
 
-
-            <Nav handleopenform={handleOpen} />
+            <Nav handleopenform={handleOpen}/>
         </div>
     )
 }

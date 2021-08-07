@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Styles from "./Dashleft.module.css" 
 import { Button, TextField } from "@material-ui/core"
 import { Link, Redirect } from "react-router-dom"
@@ -12,14 +12,18 @@ function DashLeft()
 {
 
     const dispatch = useDispatch();
+    const name = useSelector(state => state.regi.username)
+    //console.log(name)
 
 
     const [groupname, setGroupname] = useState("") 
     const [qualification, setQualification] = useState("")
     const [topic, setTopic] = useState("")
-    const [enr, setEnr] = useState(true)
-
-
+    const [enr, setEnr] = useState(false)
+ 
+    useEffect(() => {
+       setEnr(true)
+    }, [name])
 
 
     const makegrp = () => {
@@ -28,10 +32,21 @@ function DashLeft()
             qualification: qualification,
             topic: topic,
             limit: 50,
-            admin: "",
+            admin: name,
             members_id:[]
+        } 
+
+        if(name)
+        {
+            console.log(pay)
+            setEnr(true)
         }
-          
+        else
+        {
+            console.log("Not")
+            setEnr(false)
+        }
+   
         setGroupname("")
         setQualification("")
         setTopic("")
@@ -85,7 +100,7 @@ function DashLeft()
                   </div>
                  
          </div>
-  
+         {(enr)?(""):(<p style={{color:"red", marginBottom:"-20px"}}>Please Enroll First</p>)}
 
          <Button 
          variant="contained" 

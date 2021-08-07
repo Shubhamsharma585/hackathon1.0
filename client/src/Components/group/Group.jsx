@@ -3,8 +3,9 @@ import Styles from "./Group.module.css"
 import { Button, Avatar} from "@material-ui/core"
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
-
+ 
 
 
 function Group({name, qualification, topic, grpid }) {
@@ -37,13 +38,21 @@ function Group({name, qualification, topic, grpid }) {
                <p className={Styles.topic}>{topic}</p>
                
             </div>
-            <Button 
+
+            <Link to={`/Group/${grpid}`} 
+            variant="inherit" 
+            color="primary" 
+            style={{textDecoration:"none"}}
+            key={grpid}>  
+             <Button 
                  variant="contained" 
                  style={{marginTop:"13px", height:"25px", width:"35px", fontSize:"12px"}}
                  endIcon={<ArrowForwardIosIcon/>}
                  onClick={() => joining()}
                  >Join
             </Button>
+            </Link>
+          
             
         </div>
     )
