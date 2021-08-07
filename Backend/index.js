@@ -9,11 +9,26 @@ app.use(cors())
 const users = {};
 const socketToRoom = {};
 const connect = require("./src/config/db");
+
+
+app.use(express.json());
+app.use(express.urlencoded());
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+
 const UserController = require("./src/controllers/user.controller")
 const GroupController = require("./src/controllers/group.controller")
 
+
 app.use("/user", UserController)
 app.use("/groups", GroupController)
+//to remove undefined
+
+
 io.on('connection', socket => {
   socket.on("join room", roomID => {
     if (users[roomID]) {

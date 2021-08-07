@@ -1,26 +1,38 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import WhiteBoard from "../Components/whiteboard/WhiteBoard";
-import Nav from "../Components/navbar/Nav";
-import Landing from "../Components/landing/Landing";
-import { v4 as uuid } from "uuid";
+import { Route, Switch } from "react-router-dom";
+import CombinedNav from "../Components/navbar/CombinedNav"
+import Landing from "../Components/landing/Landing"
+import Board from '../Components/Board/Board';
+import Room from "../Components/video/Room";
+import CreateRoom from "../Components/video/CreateRoom";
+
+
 function Routes() {
-  return (
-    <div>
-      <Nav />
-      <Switch>
-        <Route path="/" exact>
-          <Landing />
-        </Route>
-        <Route path="/group/" exact>
-          <Redirect to={`/group/${uuid()}`} />
-        </Route>
-        <Route path="/group/:id" exact>
-          <WhiteBoard />
-        </Route>
-      </Switch>
-    </div>
-  );
+    return ( 
+        <div>
+            
+
+  <CombinedNav/>
+  <Switch> 
+
+  <Route path="/" exact>
+    <Landing/>
+  </Route>
+
+
+  <Route path="/Group/:id" exact>
+    <Board/>
+  </Route>
+
+  <Route path="/room/:roomID" component={Room} />
+
+
+
+
+  </Switch>
+        </div>
+    )
+
 }
 
 export default Routes;
