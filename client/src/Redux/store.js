@@ -2,11 +2,13 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux"
 import thunk from "redux-thunk"
 import regireducer from "./Registration/regireducer"
-import mainReducer from "./Group/reducer"
-import { composeWithDevTools } from 'redux-devtools-extension';
+import grpreducer from "./Groups/grpreducer"
+
+
 
 const rootreducer = combineReducers({
     regi: regireducer,
+    grp: grpreducer
 })
 const store1 = createStore(
     mainReducer,

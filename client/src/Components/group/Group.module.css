@@ -1,0 +1,52 @@
+
+
+.grp
+{
+   border: 1px solid lightgray; 
+   border-radius: 5px;
+   height: 60px; 
+   padding: 10px;
+   display: flex;
+   flex-direction: row; 
+   justify-content: center;
+   margin-bottom: 5px;
+}
+
+.img
+{
+    border: 1px solid gray; 
+    border-radius: 40%;
+    background-color: lightgray;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.detail
+{
+  margin-right: 30px;
+  border: 0px solid black;
+  min-width: 120px;
+}
+
+.gn
+{
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: rgb(15, 15, 136);
+}
+.qua
+{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.topic
+{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

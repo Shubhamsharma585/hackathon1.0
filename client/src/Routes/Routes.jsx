@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "../Components/home/Home";
 import Nav from "../Components/navbar/Nav";
+import Landing from "../Components/landing/Landing";
 
 function Routes() {
   return (
@@ -9,7 +9,7 @@ function Routes() {
       <Nav />
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <Landing />
         </Route>
       </Switch>
     </div>
