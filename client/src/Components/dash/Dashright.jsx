@@ -3,7 +3,7 @@ import SendIcon from '@material-ui/icons/Send';
 import Styles from "./Dashright.module.css"
 import Group from "../group/Group"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchall } from "../../Redux/Registration/action"
+
 
 
 function DashRight() 
@@ -11,7 +11,7 @@ function DashRight()
 
 
     const dispatch = useDispatch();
-    const groups1 = useSelector(state => state.regi.groups)
+    const groups1 = []
    
     console.log(groups1)
 
@@ -23,7 +23,7 @@ function DashRight()
 
 
     useEffect(() => {
-        dispatch(fetchall())
+      // fetchall()
     }, [])
 
 
