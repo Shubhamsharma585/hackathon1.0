@@ -54,6 +54,20 @@ io.on('connection', (socket) => {
   socket.emit('connection', null);
   console.log('new user connected');
   console.log(socket.id);
+  
+// white board code backend
+  socket.on("get-document",documentId=>{
+    const data="";
+    socket.join(documentId);
+    socket.emit("load-document",data);
+    socket.on("send-changes",delta=>{
+      socket.broadcast.to(documentId).emit("receive-changes", delta);
+    })
+  })
+
+  //white board end code 
+
+
 
   socket.on('register-new-user', (data) => {
     peers.push({

@@ -24,7 +24,7 @@ export default function WhiteBoard() {
   const [quill, setQuill] = useState()
 
   useEffect(() => {
-    const s = io("http://localhost:1200")
+    const s = io("http://localhost:5000")
     setSocket(s)
 
     return () => {

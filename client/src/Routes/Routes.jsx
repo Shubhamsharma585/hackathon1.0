@@ -1,9 +1,9 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import WhiteBoard from "../Components/whiteboard/WhiteBoard";
 import Nav from "../Components/navbar/Nav";
 import Landing from "../Components/landing/Landing";
-
+import {v4 as uuid} from "uuid";
 function Routes() {
   return (
     <div>
@@ -12,8 +12,10 @@ function Routes() {
         <Route path="/" exact>
           <Landing />
         </Route>
-
-        <Route path="/group" exact>
+        <Route path="/group/" exact>
+          <Redirect to={`/group/${uuid()}`} />
+        </Route>
+        <Route path="/group/:id" exact>
           <WhiteBoard />
         </Route>
       </Switch>
