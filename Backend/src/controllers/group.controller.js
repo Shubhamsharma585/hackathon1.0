@@ -6,8 +6,7 @@ const Group = require("../models/group.model");
 router.post("/", async (req, res) => {
   const group = await Group.create(req.body);
   res.json({ data: group });
-}) 
-
+})
 
 router.patch("/:id", async (req, res) => {
     const id=req.params.id;
@@ -17,18 +16,15 @@ router.patch("/:id", async (req, res) => {
 
 
 router.get("/", async (req, res) => {
-    let topic=req.query.topic;
-    topic=topic?topic!==""?{topic}:{}:{};
-    
-    const groups = await Group.find(topic).populate("admin");
+    const groups = await Group.find({}).populate("admin");
     res.json({ data: groups });
  }); 
 
-// router.get("/topic", async (req, res) => {
-//     const topic=req.query.topic; 
-//     const groups = await Group.find({topic}).populate("admin");
-//     res.json({ data: groups });
-//  }); 
+router.get("/topic", async (req, res) => {
+    const topic=req.query.topic; 
+    const groups = await Group.find({topic}).populate("admin");
+    res.json({ data: groups });
+ }); 
 
 router.get("/:id", async (req, res) => {
    const id=req.params.id;
