@@ -7,13 +7,13 @@ import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 
-import './Chat.css'; 
+import './Chat.css';
 
-const ENDPOINT = 'http://localhost:5000'; 
+const ENDPOINT = 'http://localhost:5000';
 
 let socket;      
 
-const Chat = (props) => {
+const Chat = () => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [users, setUsers] = useState('');
@@ -21,8 +21,7 @@ const Chat = (props) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const { name, room } = props;
-    console.log(name,room)
+    const { name, room } = queryString.parse(window.location.search);
 
     socket = io(ENDPOINT);
 
@@ -34,7 +33,7 @@ const Chat = (props) => {
         alert(error);
       }
     });
-  }, [props]);
+  }, [window.location.search]);
   
   useEffect(() => {
     socket.on('message', message => {
