@@ -36,7 +36,6 @@ function Board() {
 
 
   
-  
 
     return (
         <div>
