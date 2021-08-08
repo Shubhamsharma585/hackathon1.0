@@ -56,7 +56,7 @@ function DashRight()
                   <SendIcon/>
                   </div> 
             </div>
-           
+            
             <div className={Styles.cont}>
                 {groups1?.map((itm) => { return  <Group
                 name={itm.name}

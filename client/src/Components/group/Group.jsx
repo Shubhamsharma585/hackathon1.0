@@ -25,14 +25,14 @@ function Group({name, qualification, topic, grpid, members }) {
 
 
     const joining = () => {
-        Axios.patch(`http://localhost:5000/group/${grpid}`, {
+        Axios.patch(`http://localhost:5000/groups/${grpid}`, {
             members_id:[...members, usrid]
         })
         .then((res) => {
             console.log(res.data.data)
         })
     }
-
+ 
 
     return (
         <div className={Styles.grp}>

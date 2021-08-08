@@ -14,7 +14,7 @@ router.patch("/:id", async (req, res) => {
     res.json({ data: group });
   })
 
-
+ 
 router.get("/", async (req, res) => {
     const groups = await Group.find({}).populate("admin");
     res.json({ data: groups });

@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import CombinedNav from "../Components/navbar/CombinedNav"
 import Landing from "../Components/landing/Landing"
 import WhiteBoard from "../Components/whiteboard/WhiteBoard"
+import Board from "../Components/board/Board"
 import { v4 as uuid } from "uuid"
 
 
@@ -23,7 +24,8 @@ function Routes() {
 
 
   <Route path="/group/:id" exact>
-          <WhiteBoard />
+          {/* <WhiteBoard /> */}
+          <Board/>
   </Route>
 
 

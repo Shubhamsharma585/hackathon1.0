@@ -16,7 +16,7 @@ const TOOLBAR_OPTIONS = [
   [{ align: [] }],
   ["image", "blockquote", "code-block"],
   ["clean"],
-]
+] 
 
 export default function WhiteBoard() {
   const { id: documentId } = useParams()
@@ -96,5 +96,7 @@ export default function WhiteBoard() {
     q.setText("Loading...")
     setQuill(q)
   }, [])
-  return <div className="container" ref={wrapperRef}></div>
+  return <div className="container" ref={wrapperRef}>
+    
+  </div>
 }
