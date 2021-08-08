@@ -22,7 +22,17 @@ function Nav({handleopenform}) {
                 Home
             </p>
             </Link>
-            
+
+        
+        <p className={Styles.book}>  
+               <Link to={"/book"}
+               style={{textDecoration:"none", color:"black", marginTop:"15px"}}
+               >
+                 Books
+                 </Link>
+        </p>
+   
+                
 
             <p className={Styles.about}>
             <Scro  to="footer" spy={true} smooth={true}> 

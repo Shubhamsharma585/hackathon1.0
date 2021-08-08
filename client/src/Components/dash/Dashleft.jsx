@@ -12,6 +12,7 @@ function DashLeft() {
   const dispatch = useDispatch();
 
   const userid = useSelector((state) => state.regi.object_id);
+ 
 
   const history = useHistory();
   const [groupname, setGroupname] = useState("");
@@ -43,7 +44,7 @@ function DashLeft() {
         ...pay
       }).then((res) => {
           setGrpid(res.data.data._id) 
-          history.push(`/group/${res.data.data._id}`)
+          history.push(`/group/${res.data.data._id}?name=${name}&room=${res.data.data._id}`)
       })
     }
     else

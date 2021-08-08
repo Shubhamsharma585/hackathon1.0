@@ -3,11 +3,15 @@ import { Route, Switch } from "react-router-dom";
 import CombinedNav from "../Components/navbar/CombinedNav";
 import Landing from "../Components/landing/Landing";
 import WhiteBoard from "../Components/whiteboard/WhiteBoard";
-import Board from "../Components/Board/Board";
+import Board from "../Components/board/Board";
 import { v4 as uuid } from "uuid";
 import Chat from "../Components/chat/Chat/Chat";
 import Book from "../Components/books/components/Book";
 import Read from "../Components/books/components/Read";
+
+
+
+
 function Routes() {
   return (
     <div>

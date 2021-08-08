@@ -3,7 +3,7 @@
        font-family: sans-serif;
    }
 
-
+ 
        .nav
        {
            display: grid;
@@ -28,6 +28,14 @@
           cursor: pointer;   
           border: 0px solid black;
           margin: auto;
+      }
+
+      .book
+      {
+          grid-area: g;  
+          border: 0px solid black;
+          cursor: pointer;   
+          height: 20px;    
       }
 
       .about

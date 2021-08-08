@@ -14,6 +14,7 @@
 .fooleft
 {
     border: 1px solid rgb(245, 245, 245);
+    padding-left: 50px;
     height: 500px;
     width: 100%;
 }

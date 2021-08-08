@@ -1,5 +1,5 @@
 const express = require('express');
-const socket = require('socket.io');
+const socket = require('socket.io'); 
 
 const PORT = 5000;
 const app = express();
@@ -7,9 +7,9 @@ const cors = require("cors")
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/config/user');
  
 app.use(cors())
-app.use(express.json());   
+app.use(express.json());     
   
- 
+  
 app.use(express.json()); 
 app.use(express.urlencoded());
 var bodyParser = require('body-parser'); 
