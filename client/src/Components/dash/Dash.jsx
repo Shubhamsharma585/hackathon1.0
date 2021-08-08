@@ -7,10 +7,7 @@ import Dashright from "./Dashright"
  
 
 
-function Dash() {
-
-
-   
+function Dash() {  
 
     return (
         <div className={Styles.dash} id="dash">
