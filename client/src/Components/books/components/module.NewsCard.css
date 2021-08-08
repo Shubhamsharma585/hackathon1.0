@@ -1,0 +1,45 @@
+.newscard {
+  /* max-width: 50%; */
+  width: 25rem;
+  text-align: left;
+  padding: 0 20px;
+  margin-bottom: 2rem;
+  border-right: 1px solid #ddd;
+}
+.newscard:first-child {
+  width: 49%;
+}
+.newscard:nth-child(2) {
+  width: 24%;
+}
+.newscard:nth-child(3) {
+  width: 24%;
+}
+.newscard img {
+  width: 100%;
+  min-height: 100%;
+}
+.newscard a:focus,
+.newscard a:hover {
+  text-decoration: underline;
+}
+.byline {
+  color: rgb(187, 187, 187);
+  font-size: 0.6rem;
+}
+
+@media (max-width: 799px) {
+  .newscard {
+    width: 100%;
+    border: none;
+  }
+  .newscard:first-child {
+    width: 100%;
+  }
+  .newscard:nth-child(2) {
+    width: 100%;
+  }
+  .newscard:nth-child(3) {
+    width: 100%;
+  }
+}
