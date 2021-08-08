@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState, useEffect, useRef } from 'react'
 import { useParams } from "react-router-dom"
 import WhiteBoard from "../whiteboard/WhiteBoard"
 import Styles from "./Board.module.css"
@@ -14,11 +14,15 @@ function Board() {
     const { id } = useParams()
     console.log(id)
 
+
     const name = useSelector(state => state.regi.username)
     console.log(name)
 
     const [members, setMembers] = useState([])
     const [admin, setAdmin] = useState({})
+
+    
+    
  
     useEffect(() => {
        
@@ -28,16 +32,20 @@ function Board() {
             setMembers(res.data.data.members_id)
             setAdmin(res.data.data.admin)
         })
+
     }, [])
 
     console.log(members)
 
-    
+
+  
 
     return (
-        <div className={Styles.board}>
+        <div>
+<div className={Styles.board}>
+           
             <div className={Styles.left}>
-                 <WhiteBoard/>
+                 <WhiteBoard />
             </div>
            
             <div className={Styles.right}>
@@ -46,7 +54,7 @@ function Board() {
                  </div>
 
                  <div className={Styles.rightmid}>
-                    <Chat room={id} name={name}/>
+                    <Chat room1={id} name1={name}/>
                 </div>
 
                  <div className={Styles.rightbtm}>
@@ -55,6 +63,8 @@ function Board() {
             </div>
 
         </div>
+        </div>
+        
     )
 }
 

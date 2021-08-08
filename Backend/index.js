@@ -1,5 +1,5 @@
 const express = require('express');
-const socket = require('socket.io');
+const socket = require('socket.io'); 
 
 const PORT = 5000;
 const app = express();
@@ -7,14 +7,14 @@ const cors = require("cors")
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/config/user');
  
 app.use(cors())
-app.use(express.json());  
- 
- 
-app.use(express.json());
+app.use(express.json());     
+  
+  
+app.use(express.json()); 
 app.use(express.urlencoded());
 var bodyParser = require('body-parser'); 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); 
  
   
 
@@ -23,7 +23,7 @@ const Document=require("./src/models/document.model")
 const UserController = require("./src/controllers/user.controller")
 const GroupController = require("./src/controllers/group.controller")
 
-app.use("/user", UserController) 
+app.use("/user", UserController)   
 app.use("/groups", GroupController) 
   
 const server = app.listen(PORT, async () => {
@@ -57,7 +57,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("save-document", async data => {
-      await Document.findByIdAndUpdate(documentId, { data })
+      await Document.findByIdAndUpdate(documentId, { data }) 
     })
   })
 

@@ -57,9 +57,9 @@ function Group({name, qualification, topic, grpid, members }) {
                <p className={Styles.qua}>{qualification}</p>
                <p className={Styles.topic}>{topic}</p>
                
-            </div>
+            </div> 
 
-            {usrid? (<Link to={`/group/${grpid}`}  
+            {usrid? (<Link to={`/group/${grpid}?room=${grpid}&name=${usrname}`}  
             variant="inherit" 
             color="primary" 
             style={{textDecoration:"none"}}

@@ -16,7 +16,6 @@
 .right 
 {
     border: 2px solid rgb(177, 177, 177);
-    height: 700px;
     width: 34%;
     background-color: rgb(218, 218, 218);
     overflow: scroll;
@@ -40,5 +39,5 @@
 .rightbtm
 {
     border: 1px solid lightgray;
-    height: 200px;
+    height: 0px;
 }
