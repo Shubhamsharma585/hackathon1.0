@@ -25,14 +25,26 @@ function Group({name, qualification, topic, grpid, members }) {
 
 
     const joining = () => {
-        Axios.patch(`http://localhost:5000/room/${grpid}`, {
+        if(usrid)
+        {
+        Axios.patch(`http://localhost:5000/groups/${grpid}`, {
             members_id:[...members, usrid]
         })
         .then((res) => {
             console.log(res.data.data)
         })
+        }
+        else
+        {
+            console.log("not enrolled")
+        }
+        
     }
 
+    const enfirst = () => {
+        alert("Please Enroll Yourself")
+    }
+ 
 
     return (
         <div className={Styles.grp}>
@@ -47,19 +59,33 @@ function Group({name, qualification, topic, grpid, members }) {
                
             </div>
 
-            <Link to={`/room/${grpid}`}  
+            {usrid? (<Link to={`/group/${grpid}`}  
             variant="inherit" 
             color="primary" 
             style={{textDecoration:"none"}}
-            key={grpid}>  
-             <Button 
+            key={grpid}> 
+               <Button 
                  variant="contained" 
                  style={{marginTop:"13px", height:"25px", width:"35px", fontSize:"12px"}}
                  endIcon={<ArrowForwardIosIcon/>}
                  onClick={() => joining()}
                  >Join
-            </Button>
-            </Link>
+              </Button>
+            </Link>):(<Link
+             variant="inherit" 
+             color="primary" 
+             style={{textDecoration:"none"}}
+             key={grpid}>
+                  <Button 
+                 variant="contained" 
+                 style={{marginTop:"13px", height:"25px", width:"35px", fontSize:"12px"}}
+                 endIcon={<ArrowForwardIosIcon/>}
+                 onClick={() => enfirst()}
+                 >Join
+              </Button>
+            </Link>)}
+
+
           
             
         </div>

@@ -1,0 +1,91 @@
+
+
+.cont1
+{
+   border: 1px solid rgb(136, 124, 124); 
+   background-color: rgb(91, 88, 66);
+   border-radius: 5px;
+   height: 60px; 
+   padding: 10px;
+   display: flex;
+   flex-direction: row; 
+   justify-content: center;
+   margin-bottom: 5px;
+}
+
+.cont
+{
+   border: 1px solid rgb(136, 124, 124); 
+   background-color: rgb(67, 110, 104);
+   border-radius: 5px;
+   height: 60px; 
+   padding: 10px;
+   display: flex;
+   flex-direction: row; 
+   justify-content: center;
+   margin-bottom: 5px;
+}
+
+
+.img
+{
+    border: 1px solid gray; 
+    border-radius: 40%;
+    background-color: lightgray;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.detail
+{
+  margin: auto;
+  margin-right: 30px;
+  border: 0px solid rgb(189, 144, 144);
+  min-width: 180px;
+  text-align: center;
+}
+
+.gn
+{
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: rgb(15, 15, 136);
+}
+
+.qua
+{
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: rgb(205, 205, 205);
+}
+
+.admin
+{
+   border-bottom: 2px solid rgb(71, 74, 74);
+   margin-bottom: 10px;
+}
+
+
+.members
+{
+   border: 1px solid rgb(181, 181, 181);
+   border-radius: 5px;
+   box-shadow: 2px 2px 5px 1px rgb(165, 167, 167);
+   height: 250px;
+   margin-bottom: 10px;
+   overflow: scroll;
+   padding: 10px;
+}
+
+.header
+{
+  margin: auto;
+  text-align: center;
+  margin-bottom: 10px;
+  color: rgb(20, 30, 46);
+  font-weight: 500;
+}

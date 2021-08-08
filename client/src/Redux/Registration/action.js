@@ -15,7 +15,7 @@ export const registering = (payload) => dispatch => {
     console.log(payload)
 
     dispatch(registerrequest())
-    Axios.post("http://localhost:8000/user", {
+    Axios.post("http://localhost:5000/user", {
         ...payload
     })
         .then((res) => {

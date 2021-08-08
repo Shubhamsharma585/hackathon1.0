@@ -23,9 +23,11 @@
 
 .detail
 {
-  margin-right: 30px;
-  border: 0px solid black;
-  min-width: 120px;
+  margin-right: 45px;
+  border: 0px solid #000000;
+  min-width: 100px;
+  justify-content: center;
+  text-align: center;
 }
 
 .gn
