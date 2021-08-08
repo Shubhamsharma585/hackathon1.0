@@ -1,0 +1,44 @@
+ 
+.board
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.left
+{
+   border: 0px solid black;
+   padding: 10px;
+   background-color: rgb(93, 128, 133);
+   width: 65%;
+}
+
+.right 
+{
+    border: 2px solid rgb(177, 177, 177);
+    height: 700px;
+    width: 34%;
+    background-color: rgb(218, 218, 218);
+    overflow: scroll;
+}
+
+.righttop 
+{
+   
+    border-radius: 5px;
+    height: 400px;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+.rightmid
+{
+    border: 1px solid lightgray;
+    height: 505px;
+}
+
+.rightbtm
+{
+    border: 1px solid lightgray;
+    height: 200px;
+}

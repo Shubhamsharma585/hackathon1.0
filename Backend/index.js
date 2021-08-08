@@ -7,7 +7,7 @@ const cors = require("cors")
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/config/user');
  
 app.use(cors())
-app.use(express.json());
+app.use(express.json());  
  
  
 app.use(express.json());
@@ -15,17 +15,17 @@ app.use(express.urlencoded());
 var bodyParser = require('body-parser'); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+ 
+  
 
-
-
-const connect = require("./src/config/db");
+const connect = require("./src/config/db"); 
 const Document=require("./src/models/document.model")
 const UserController = require("./src/controllers/user.controller")
 const GroupController = require("./src/controllers/group.controller")
 
 app.use("/user", UserController) 
 app.use("/groups", GroupController) 
-
+  
 const server = app.listen(PORT, async () => {
   await connect()
   console.log(`server is listening on port ${PORT}`);
