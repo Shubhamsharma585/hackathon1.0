@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Styles from "./Footer.module.css"
-//import { Link as Scro } from 'react-scroll'
+import { Link as Scro } from 'react-scroll'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import gm1 from "../../Images/gm1.png"
 
@@ -26,11 +26,11 @@ function Footer() {
         </div>
 
         <div className={Styles.bottom}>
-            {/* <Link  to="nav" spy={true} smooth={true}>  */}
+           <Scro  to="nav" spy={true} smooth={true}> 
                <div className={Styles.bor}>
                   <ArrowUpwardIcon style={{color:"white", cursor:"pointer"}} />
                </div>
-            {/* </Link> */}
+          </Scro> 
            
         </div>
 

@@ -7,7 +7,7 @@ import Footer from "../footer/Footer"
 
 
 function Landing() 
-{
+{ 
     return ( 
         <div>
             <Home/>

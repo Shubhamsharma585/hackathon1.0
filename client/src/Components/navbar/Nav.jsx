@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
   
 
 function Nav({handleopenform}) { 
- 
+  
 
     const name = useSelector(state => state.regi.username)
   

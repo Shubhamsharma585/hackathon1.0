@@ -4,7 +4,7 @@ const Group = require("../models/group.model");
 
 
 router.post("/", async (req, res) => {
-  const group = await Group.create(req.body);
+  const group = await Group.create(req.body); 
   res.json({ data: group });
 })
 

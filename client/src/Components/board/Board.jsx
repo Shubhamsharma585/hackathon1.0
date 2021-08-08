@@ -4,6 +4,8 @@ import WhiteBoard from "../whiteboard/WhiteBoard"
 import Styles from "./Board.module.css"
 import Axios from 'axios'
 import Boardmembers from "./Boardmembers"
+import Chat from "../chat/Chat/Chat"
+import { useDispatch, useSelector } from "react-redux"
 
 
 function Board() {
@@ -12,9 +14,12 @@ function Board() {
     const { id } = useParams()
     console.log(id)
 
+    const name = useSelector(state => state.regi.username)
+    console.log(name)
+
     const [members, setMembers] = useState([])
     const [admin, setAdmin] = useState({})
-
+ 
     useEffect(() => {
        
         Axios.get(`http://localhost:5000/groups/${id}`,{
@@ -39,9 +44,11 @@ function Board() {
                  <div className={Styles.righttop}>
                       <Boardmembers admin={admin} members={members}/>
                  </div>
-                 <div className={Styles.rightmid}>
 
+                 <div className={Styles.rightmid}>
+                    <Chat room={id} name={name}/>
                 </div>
+
                  <div className={Styles.rightbtm}>
 
                  </div>

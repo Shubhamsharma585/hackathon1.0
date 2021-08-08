@@ -50,7 +50,7 @@ export default function WhiteBoard() {
       socket.emit("save-document", quill.getContents())
     }, SAVE_INTERVAL_MS)
 
-    return () => {
+    return () => { 
       clearInterval(interval)
     }
   }, [socket, quill])
@@ -96,7 +96,7 @@ export default function WhiteBoard() {
     q.setText("Loading...")
     setQuill(q)
   }, [])
-  return <div className="container" ref={wrapperRef}>
+  return <div className="container1" ref={wrapperRef}>
     
   </div>
 }

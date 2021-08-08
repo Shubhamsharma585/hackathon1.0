@@ -1,4 +1,4 @@
-
+ 
 .board
 {
     display: flex;
@@ -15,14 +15,16 @@
 
 .right 
 {
-    border: 1px solid lightgray;
+    border: 2px solid rgb(177, 177, 177);
+    height: 700px;
     width: 34%;
-    background-color: rgb(109, 184, 197);
+    background-color: rgb(218, 218, 218);
+    overflow: scroll;
 }
 
-.righttop
+.righttop 
 {
-    border: 2px solid rgb(177, 177, 177);
+   
     border-radius: 5px;
     height: 400px;
     background-color: lightgray;
@@ -32,11 +34,11 @@
 .rightmid
 {
     border: 1px solid lightgray;
-    height: 400px;
+    height: 505px;
 }
 
 .rightbtm
 {
     border: 1px solid lightgray;
-    height: 400px;
+    height: 200px;
 }
